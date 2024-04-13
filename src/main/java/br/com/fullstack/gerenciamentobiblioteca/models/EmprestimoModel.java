@@ -14,6 +14,7 @@ public class EmprestimoModel {
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(nullable = false)
     private Date dataEmprestimo;
 
     @Temporal(TemporalType.TIMESTAMP)

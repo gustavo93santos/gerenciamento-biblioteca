@@ -12,10 +12,13 @@ public class LivroModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String titulo;
 
+    @Column(nullable = false)
     private String autor;
 
-    private int anoPublicacao;
+    @Column(nullable = false)
+    private Integer anoPublicacao;
 
 }
