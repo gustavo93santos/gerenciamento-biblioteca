@@ -1,5 +1,6 @@
 package br.com.fullstack.gerenciamentobiblioteca.services;
 
+import br.com.fullstack.gerenciamentobiblioteca.models.LivroModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.MembroModel;
 import br.com.fullstack.gerenciamentobiblioteca.repositories.MembroRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,5 +14,9 @@ public class MembroService {
     public MembroModel salvarMembro(MembroModel membroModel){
         membroModel = membroRepository.save(membroModel);
         return membroModel;
+    }
+
+    public MembroModel buscarMembroPorId (Long id){
+        return membroRepository.getReferenceById(id);
     }
 }

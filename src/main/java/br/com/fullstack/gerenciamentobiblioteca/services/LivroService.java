@@ -14,4 +14,8 @@ public class LivroService {
         livroModel = livroRepository.save(livroModel);
         return livroModel;
     }
+
+    public LivroModel buscarLivroPorId (Long id){
+        return livroRepository.getReferenceById(id);
+    }
 }
