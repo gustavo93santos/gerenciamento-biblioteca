@@ -21,8 +21,10 @@ public class EmprestimoModel {
     private Date dataDevolucao;
 
     @ManyToOne(optional = false)
+    @JoinColumn(name = "livro_id")
     private LivroModel livro;
 
     @ManyToOne(optional = false)
+    @JoinColumn(name = "membro_id")
     private MembroModel membro;
 }

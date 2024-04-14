@@ -22,6 +22,10 @@ public class MembroService {
     }
 
     public MembroModel buscarMembroPorId(Long id) throws Exception {
-        return membroRepository.findById(id).orElseThrow(() -> new Exception("Livro não encontrado!"));
+        return membroRepository.findById(id).orElseThrow(() -> new Exception("Membro não encontrado!"));
+    }
+
+    public void deletarMembro(Long id) throws Exception{
+        membroRepository.delete(buscarMembroPorId(id));
     }
 }

@@ -27,4 +27,9 @@ public class VisitanteController {
     public VisitanteModel readById(@PathVariable Long id) throws Exception {
         return visitanteService.buscarVisitantePorId(id);
     }
+
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable Long id) throws Exception {
+        visitanteService.deletarVisitante(id);
+    }
 }

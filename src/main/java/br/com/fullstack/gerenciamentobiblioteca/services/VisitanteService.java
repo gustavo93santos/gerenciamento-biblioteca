@@ -23,6 +23,10 @@ public class VisitanteService {
     }
 
     public VisitanteModel buscarVisitantePorId(Long id) throws Exception {
-        return visitanteRepository.findById(id).orElseThrow(() -> new Exception("Livro não encontrado!"));
+        return visitanteRepository.findById(id).orElseThrow(() -> new Exception("Visitante não encontrado!"));
+    }
+
+    public void deletarVisitante(Long id) throws Exception{
+        visitanteRepository.delete(buscarVisitantePorId(id));
     }
 }

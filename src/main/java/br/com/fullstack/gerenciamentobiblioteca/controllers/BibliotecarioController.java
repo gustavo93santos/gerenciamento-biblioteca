@@ -27,4 +27,9 @@ public class BibliotecarioController {
     public BibliotecarioModel readById(@PathVariable Long id) throws Exception {
         return bibliotecarioService.buscarBibliotecarioPorId(id);
     }
+
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable Long id) throws Exception {
+        bibliotecarioService.deletarEmprestimo(id);
+    }
 }

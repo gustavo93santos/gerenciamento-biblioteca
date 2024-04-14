@@ -24,4 +24,8 @@ public class LivroService {
     public LivroModel buscarLivroPorId(Long id) throws Exception {
         return livroRepository.findById(id).orElseThrow(() -> new Exception("Livro não encontrado!"));
     }
+
+    public void deletarLivro(Long id) throws Exception{
+        livroRepository.delete(buscarLivroPorId(id));
+    }
 }

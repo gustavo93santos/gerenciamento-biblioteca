@@ -28,4 +28,8 @@ public class MembroController {
         return membroService.buscarMembroPorId(id);
     }
 
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable Long id) throws Exception {
+        membroService.deletarMembro(id);
+    }
 }

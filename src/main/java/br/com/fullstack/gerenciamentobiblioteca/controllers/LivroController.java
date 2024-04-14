@@ -27,4 +27,9 @@ public class LivroController {
     public LivroModel readById(@PathVariable Long id) throws Exception {
         return livroService.buscarLivroPorId(id);
     }
+
+    @DeleteMapping("{id}")
+    public void deleteById(@PathVariable Long id) throws Exception {
+        livroService.deletarLivro(id);
+    }
 }

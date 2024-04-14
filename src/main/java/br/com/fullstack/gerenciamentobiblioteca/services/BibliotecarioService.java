@@ -1,6 +1,9 @@
 package br.com.fullstack.gerenciamentobiblioteca.services;
 
 import br.com.fullstack.gerenciamentobiblioteca.models.BibliotecarioModel;
+import br.com.fullstack.gerenciamentobiblioteca.models.EmprestimoModel;
+import br.com.fullstack.gerenciamentobiblioteca.models.LivroModel;
+import br.com.fullstack.gerenciamentobiblioteca.models.MembroModel;
 import br.com.fullstack.gerenciamentobiblioteca.repositories.BibliotecarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,10 @@ public class BibliotecarioService {
     }
 
     public BibliotecarioModel buscarBibliotecarioPorId(Long id) throws Exception {
-        return bibliotecarioRepository.findById(id).orElseThrow(() -> new Exception("Livro não encontrado!"));
+        return bibliotecarioRepository.findById(id).orElseThrow(() -> new Exception("Bibliotecario não encontrado!"));
+    }
+
+    public void deletarEmprestimo(Long id) throws Exception{
+        bibliotecarioRepository.delete(buscarBibliotecarioPorId(id));
     }
 }
