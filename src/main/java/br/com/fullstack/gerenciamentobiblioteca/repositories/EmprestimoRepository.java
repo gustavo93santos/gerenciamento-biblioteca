@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+
 @Repository
 public interface EmprestimoRepository extends JpaRepository<EmprestimoModel, Long> {
 
@@ -17,6 +19,6 @@ public interface EmprestimoRepository extends JpaRepository<EmprestimoModel, Lon
             "t.dataDevolucao = :dataDevolucao " +
             "where t.id = :id")
     void update(@Param("id") Long id,
-                @Param("dataDevolucao") String dataDevolucao);
+                @Param("dataDevolucao") Date dataDevolucao);
 
 }

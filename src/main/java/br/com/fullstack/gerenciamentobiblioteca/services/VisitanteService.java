@@ -1,6 +1,7 @@
 package br.com.fullstack.gerenciamentobiblioteca.services;
 
 
+import br.com.fullstack.gerenciamentobiblioteca.models.MembroModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.VisitanteModel;
 import br.com.fullstack.gerenciamentobiblioteca.repositories.VisitanteRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +29,9 @@ public class VisitanteService {
 
     public void deletarVisitante(Long id) throws Exception{
         visitanteRepository.delete(buscarVisitantePorId(id));
+    }
+
+    public void atualizarVisitante(Long id, VisitanteModel visitante) throws Exception {
+        visitanteRepository.update(id, visitante.getNome(), visitante.getTelefone());
     }
 }

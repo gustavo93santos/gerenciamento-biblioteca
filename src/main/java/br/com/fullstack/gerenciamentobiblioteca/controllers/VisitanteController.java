@@ -1,5 +1,6 @@
 package br.com.fullstack.gerenciamentobiblioteca.controllers;
 
+import br.com.fullstack.gerenciamentobiblioteca.models.MembroModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.VisitanteModel;
 import br.com.fullstack.gerenciamentobiblioteca.services.VisitanteService;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +32,10 @@ public class VisitanteController {
     @DeleteMapping("{id}")
     public void deleteById(@PathVariable Long id) throws Exception {
         visitanteService.deletarVisitante(id);
+    }
+
+    @PutMapping("{id}")
+    public void update(@PathVariable Long id, @RequestBody VisitanteModel visitante) throws Exception {
+        visitanteService.atualizarVisitante(id, visitante);
     }
 }

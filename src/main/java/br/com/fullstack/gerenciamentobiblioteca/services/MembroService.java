@@ -1,5 +1,6 @@
 package br.com.fullstack.gerenciamentobiblioteca.services;
 
+import br.com.fullstack.gerenciamentobiblioteca.models.BibliotecarioModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.MembroModel;
 import br.com.fullstack.gerenciamentobiblioteca.repositories.MembroRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +28,9 @@ public class MembroService {
 
     public void deletarMembro(Long id) throws Exception{
         membroRepository.delete(buscarMembroPorId(id));
+    }
+
+    public void atualizarMembro(Long id, MembroModel membro) throws Exception {
+        membroRepository.update(id, membro.getNome(), membro.getEndereco(), membro.getTelefone());
     }
 }

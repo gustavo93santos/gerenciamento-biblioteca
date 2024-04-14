@@ -30,6 +30,12 @@ public class BibliotecarioController {
 
     @DeleteMapping("{id}")
     public void deleteById(@PathVariable Long id) throws Exception {
-        bibliotecarioService.deletarEmprestimo(id);
+        bibliotecarioService.deletarBibliotecario(id);
     }
+
+    @PutMapping("{id}")
+    public void update(@PathVariable Long id, @RequestBody BibliotecarioModel bibliotecario) throws Exception {
+        bibliotecarioService.atualizarBibliotecario(id, bibliotecario);
+    }
+
 }

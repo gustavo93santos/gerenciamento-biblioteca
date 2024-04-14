@@ -1,5 +1,6 @@
 package br.com.fullstack.gerenciamentobiblioteca.services;
 
+import br.com.fullstack.gerenciamentobiblioteca.models.BibliotecarioModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.LivroModel;
 import br.com.fullstack.gerenciamentobiblioteca.repositories.LivroRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,5 +28,9 @@ public class LivroService {
 
     public void deletarLivro(Long id) throws Exception{
         livroRepository.delete(buscarLivroPorId(id));
+    }
+
+    public void atualizarLivro(Long id, LivroModel livro) throws Exception {
+        livroRepository.update(id, livro.getTitulo(), livro.getAutor(), livro.getAnoPublicacao());
     }
 }

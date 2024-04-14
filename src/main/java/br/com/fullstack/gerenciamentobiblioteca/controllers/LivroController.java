@@ -1,5 +1,6 @@
 package br.com.fullstack.gerenciamentobiblioteca.controllers;
 
+import br.com.fullstack.gerenciamentobiblioteca.models.EmprestimoModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.LivroModel;
 import br.com.fullstack.gerenciamentobiblioteca.services.LivroService;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +32,10 @@ public class LivroController {
     @DeleteMapping("{id}")
     public void deleteById(@PathVariable Long id) throws Exception {
         livroService.deletarLivro(id);
+    }
+
+    @PutMapping("{id}")
+    public void update(@PathVariable Long id, @RequestBody LivroModel livro) throws Exception {
+        livroService.atualizarLivro(id, livro);
     }
 }

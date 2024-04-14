@@ -1,5 +1,6 @@
 package br.com.fullstack.gerenciamentobiblioteca.services;
 
+import br.com.fullstack.gerenciamentobiblioteca.models.BibliotecarioModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.EmprestimoModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.LivroModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.MembroModel;
@@ -33,5 +34,9 @@ public class EmprestimoService {
 
     public void deletarEmprestimo(Long id) throws Exception{
         emprestimoRepository.delete(buscarEmprestimoPorId(id));
+    }
+
+    public void atualizarEmprestimo(Long id, EmprestimoModel emprestimo) throws Exception {
+        emprestimoRepository.update(id, emprestimo.getDataDevolucao());
     }
 }

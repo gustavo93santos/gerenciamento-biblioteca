@@ -28,7 +28,11 @@ public class BibliotecarioService {
         return bibliotecarioRepository.findById(id).orElseThrow(() -> new Exception("Bibliotecario não encontrado!"));
     }
 
-    public void deletarEmprestimo(Long id) throws Exception{
+    public void deletarBibliotecario(Long id) throws Exception{
         bibliotecarioRepository.delete(buscarBibliotecarioPorId(id));
+    }
+
+    public void atualizarBibliotecario(Long id, BibliotecarioModel bibliotecario) throws Exception {
+        bibliotecarioRepository.update(id, bibliotecario.getNome(), bibliotecario.getEmail(), bibliotecario.getSenha());
     }
 }
