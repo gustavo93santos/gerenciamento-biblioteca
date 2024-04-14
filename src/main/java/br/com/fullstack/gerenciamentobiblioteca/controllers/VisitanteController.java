@@ -1,24 +1,30 @@
 package br.com.fullstack.gerenciamentobiblioteca.controllers;
 
-import br.com.fullstack.gerenciamentobiblioteca.models.MembroModel;
 import br.com.fullstack.gerenciamentobiblioteca.models.VisitanteModel;
 import br.com.fullstack.gerenciamentobiblioteca.services.VisitanteService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/visitantes")
 @RequiredArgsConstructor
 public class VisitanteController {
     private final VisitanteService visitanteService;
+
     @PostMapping
-    public VisitanteModel create (@RequestBody VisitanteModel visitante){
-        visitanteService.salvarVisitante(visitante);
-        return ResponseEntity.status(HttpStatus.CREATED).body(visitante).getBody();
+    public VisitanteModel create(@RequestBody VisitanteModel visitante) {
+        return visitanteService.salvarVisitante(visitante);
+    }
+
+    @GetMapping
+    public List<VisitanteModel> readAll() {
+        return visitanteService.buscarVisitantes();
+    }
+
+    @GetMapping("{id}")
+    public VisitanteModel readById(@PathVariable Long id) throws Exception {
+        return visitanteService.buscarVisitantePorId(id);
     }
 }
